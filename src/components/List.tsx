@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { ContainerList } from '../styles/styleList';
 import { IProduct, getProducts } from '../service/products';
+import { Product } from './Product';
 
 export function List() {
   const [products, setProducts] = useState<IProduct[]>([])
@@ -11,18 +13,22 @@ export function List() {
   }, [])
 
   return (
-    <div>
-      <ul>
-        {
-          products.map((item) => (
-            <li key={item.id}>
-              <h3>{item.productName}</h3>
-              <p>{item.stock}</p>
-              <p>{item.price}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+    <>
+    <ContainerList>
+      {
+        products.map((item) => (
+          <Product 
+            key={item.id}
+            productName={item.productName}
+            image={item.image_url}
+            description={item.productDescription}
+            stock={item.stock}
+            price={item.price}
+            favorite={item.favorites}
+          />
+        ))
+      }
+    </ContainerList>
+    </>
   );
 }

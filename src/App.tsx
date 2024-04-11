@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <Menu />
-      <List />
+      <div className='container'>
+        <List />
+      </div>
     </>
   );
 }
