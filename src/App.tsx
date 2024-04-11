@@ -1,9 +1,11 @@
+import './App.css';
 import { List } from './components/List';
+import { Menu } from './components/Menu';
 
 function App() {
   return (
     <>
-      <div>Allfunds challenge</div>
+      <Menu />
       <List />
     </>
   );
