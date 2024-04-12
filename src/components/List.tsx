@@ -3,7 +3,11 @@ import { ContainerList } from '../styles/styleList';
 import { IProduct, getProducts } from '../service/products';
 import { Product } from './Product';
 
-export function List() {
+interface ListProps {
+  addToCart: (product: IProduct) => void;
+}
+
+export function List({ addToCart }: ListProps) {
   const [products, setProducts] = useState<IProduct[]>([])
 
   useEffect(() => {
@@ -25,6 +29,7 @@ export function List() {
             stock={item.stock}
             price={item.price}
             favorite={item.favorites}
+            addToCart={() => addToCart(item)}
           />
         ))
       }

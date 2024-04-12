@@ -8,9 +8,10 @@ interface ProductProps {
   stock: number;
   price: number;
   favorite: boolean;
+  addToCart: () => void;
 }
 
-export function Product({ productName, image, stock, price }: ProductProps) {
+export function Product({ productName, image, stock, price, addToCart }: ProductProps) {
   return (
     <CardProduct>
       <ImageProduct src={image} alt={productName} />
@@ -27,7 +28,7 @@ export function Product({ productName, image, stock, price }: ProductProps) {
         <p>Stock: {stock}</p>
         <BtnSection>
           <Btn><CiHeart /></Btn>
-          <Btn><CiShoppingCart /></Btn>
+          <Btn onClick={addToCart}><CiShoppingCart /></Btn>
         </BtnSection>
       </FooterSection>
     </CardProduct>

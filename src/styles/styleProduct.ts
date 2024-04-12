@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const CardProduct = styled.div`
-  background-color: #F0F0F0;
+  background-color: #FFF;
   width: 230px;
   height: 300px;
   border: 2px solid #000;
