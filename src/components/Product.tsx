@@ -18,7 +18,7 @@ export function Product({ productName, image, stock, price, addToCart }: Product
       <MainSection>
         <InfoSection>
           <h3>{productName}</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
         </InfoSection>
         <PriceSection>
           <h3>${price}</h3>

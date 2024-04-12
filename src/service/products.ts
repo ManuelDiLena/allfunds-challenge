@@ -10,6 +10,7 @@ export interface IProduct {
   price: number;
   productDescription: string;
   favorites: boolean;
+  quantity?: number;
 }
 
 // Get all products from the API

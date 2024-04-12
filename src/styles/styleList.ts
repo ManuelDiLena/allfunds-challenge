@@ -4,7 +4,7 @@ const ContainerList = styled.div`
   display: flex;
   justify-content: left;
   flex-wrap: wrap;
-  width: 80%;
+  width: 75%;
   height: 87vh;
   padding: 5px;
   overflow-y: auto;
