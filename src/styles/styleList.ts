@@ -10,6 +10,12 @@ const ContainerList = styled.div`
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
+
+  @media (max-width: 450px) {
+    width: 100%;
+    min-width: 0%;
+    justify-content: flex-start;
+  }
 `
 
 export {

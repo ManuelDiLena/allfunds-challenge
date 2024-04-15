@@ -11,6 +11,7 @@ interface ListProps {
 export function List({ addToCart, addToFav }: ListProps) {
   const [products, setProducts] = useState<IProduct[]>([])
 
+  // Rendering of the list of products obtained
   useEffect(() => {
     getProducts()
       .then((data) => setProducts(data))

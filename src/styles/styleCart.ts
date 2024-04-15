@@ -7,6 +7,10 @@ const ContainerCart = styled.div`
   width: 20%;
   height: 87vh;
   padding: 5px;
+
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `
 
 const CheckoutBtn = styled.button`

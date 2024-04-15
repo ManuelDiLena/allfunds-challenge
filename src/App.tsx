@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css';
 import { Menu } from './components/Menu';
 import { List } from './components/List';
@@ -10,8 +10,28 @@ import useToggle from './hooks/useToggle'
 function App() {
 
   const [cartItems, setCartItems] = useState<IProduct[]>([])
+  const [cartVisible, toggleCart] = useToggle(false)
   const [favVisible, toggleFav] = useToggle(false)
   const [favItems, setFavItems] = useState<IProduct[]>([])
+  const [mobileScreen, toggleMobileScreen] = useToggle(false)
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  const showFullScreenCart = () => {
+    toggleMobileScreen()
+    toggleCart()
+  }
 
   // Function to add products to cart
   const addToCart = (product: IProduct) => {
@@ -40,15 +60,53 @@ function App() {
 
   return (
     <>
-      <Menu onHideFav={toggleFav} />
+      <Menu onHideCart={mobileScreen ? showFullScreenCart : toggleCart} onHideFav={toggleFav} />
       <div className='container'>
-        <List addToCart={addToCart} addToFav={addToFav} />
         {
-          favVisible
-          ?
-          <Favorites favItems={favItems} setFavItems={setFavItems} />
-          :
-          <Cart cartItems={cartItems} setCartItems={setCartItems} />
+          windowWidth > 450 && (
+            favVisible ? (
+              <>
+              <List 
+                addToCart={addToCart}
+                addToFav={addToFav}
+              />
+              <Favorites 
+                favItems={favItems}
+                setFavItems={setFavItems}
+              />
+              </>
+            ) : (
+              <>
+              <List 
+                addToCart={addToCart}
+                addToFav={addToFav}
+              />
+              <Cart 
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+              />
+              </>
+            )
+          )
+        }
+        {
+          windowWidth < 450 && (
+            cartVisible ? (
+              <>
+              <Cart 
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+              />
+              </>
+            ) : (
+              <>
+              <List 
+                addToCart={addToCart}
+                addToFav={addToFav}
+              />
+              </>
+            )
+          )
         }
       </div>
     </>

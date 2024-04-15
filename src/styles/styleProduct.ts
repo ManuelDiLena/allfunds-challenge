@@ -14,6 +14,11 @@ const CardProduct = styled.div`
   margin-bottom: 10px;
   margin-right: 10px;
   gap: 10px;
+
+  @media (max-width: 450px) {
+    width: 160px;
+    height: 250px;
+  }
 `
 
 const ImageProduct = styled.img`
@@ -33,6 +38,12 @@ const InfoSection = styled.div`
   width: 80%;
   font-size: 14px;
   padding-top: 2px;
+
+  @media (max-width: 450px) {
+    p {
+      display: none;
+    }
+  }
 `
 
 const PriceSection = styled.div`
