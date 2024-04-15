@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ContainerCart = styled.div`
+const ContainerFav = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -9,30 +9,26 @@ const ContainerCart = styled.div`
   padding: 5px;
 `
 
-const CheckoutBtn = styled.button`
+const TitleFav = styled.button`
   width: 100%;
   padding: 10px 0 10px 0;
-  background-color: #F9E75E;
-  color: #333366;
+  background-color: #FF5F5F;
+  color: #F0F0F0;
   font-size: 16px;
   font-weight: bold;
   border-radius: 5px;
   box-shadow: 4px 4px 5px rgba(0,0,0,0.59);
   margin-bottom: 5px;
+  letter-spacing: 3px;
   line-height: 1;
-  cursor: pointer;
-  &:hover {
-    background-color: #DECE54;
-  }
 `
 
-const ItemCart = styled.div`
+const ItemFav = styled.div`
   width: 95%;
-  height: 80px;
+  height: 60px;
   padding: 5px;
   margin-bottom: 3px;
   display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   background-color: #FFF;
@@ -41,39 +37,36 @@ const ItemCart = styled.div`
   border-radius: 5px;
 `
 
-const ItemInfo = styled.div`
-  width: 100%;
-  height: 50%;
+const FavInfo = styled.div`
+  width: 80%;
+  height: 90%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
   & h3 {
     font-size: 14px;
   }
 `
 
-const ItemActions = styled.div`
-  width: 100%;
-  height: 50%;
+const FavActions = styled.div`
+  width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
   & span {
     margin: 0 5px 0 5px;
     font-size: 28px;
-    color: #406343;
+    color: #FF5F5F;
     cursor: pointer;
-    padding-top: 2px
-  }
-  & p {
-    font-size: 28px;
+    padding-top: 2px;
   }
 `
 
-export {
-  ContainerCart,
-  CheckoutBtn,
-  ItemCart,
-  ItemInfo,
-  ItemActions,
+export { 
+  ContainerFav,
+  TitleFav,
+  ItemFav,
+  FavInfo,
+  FavActions,
 }
