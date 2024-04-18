@@ -1,30 +1,44 @@
-# React + TypeScript + Vite
+# Allfunds Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### This project was carried out as a technical test for the position of fullstack developer at Allfunds.
+### It is a list of products consumed from a server through an API, each product can be added to the shopping cart or favorites list.
+### It is made with React, NodeJS, TypeScript and Styled Components.
 
-Currently, two official plugins are available:
+### You can visit it [here!](https://manueldilena.github.io/allfunds-challenge/)
+![allfunds-challenge](https://github.com/ManuelDiLena/allfunds-challenge/assets/64201890/6b13ca5e-f2db-4f8a-b782-ea15e297d667)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Requirements
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The user of the web application should be able to see a list of products and add them to the shopping cart.
 
-- Configure the top-level `parserOptions` property like this:
+They should:
+-	See a large list of products
+-	See stock availability for each product
+-	See the list of items in the cart
+-	Add a product to the cart
+-	Increase/decrease the quantity of the products already in the cart, decreasing down to 0 will remove the product from the cart
+-	See cart total amount
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+The web application needs to be responsive and adapt from a single view layout (desktop mockup) to a multiple view layout as in the mobile mockup. The user will be able to navigate from product list view to cart view using the navigation arrow buttons.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The following requirements are a plus:
+-	Add a product to favorite list
+-	List the favorite products
+
+## Dev Requirements
+
+You should use:
+-	Styled-Components/Emotion/Sass/Less/css or similar to style the components
+ > Avoid using design systems or style components libraries and try to follow the look and feel in the mockup provided (pixel perfect not required).
+-	Typescript **(Is a plus)**
+-	React
+
+Testing components is a plus, although a minimal unit test suite will be appreciated.
+
+Available entry points:
+-	GET /grocery: get the list of products
+-	PATCH /grocery/:id: update the item stock
+-	GET /grocery?favorite=1: get the list of favorite items
+
+Please refer to the README file inside `server-api` for details on how to run the API server locally.
